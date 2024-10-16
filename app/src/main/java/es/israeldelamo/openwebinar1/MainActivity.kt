@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import es.israeldelamo.openwebinar1.ui.theme.OpenWebinar1Theme
 import java.util.logging.Logger
@@ -31,6 +32,9 @@ class MainActivity : ComponentActivity() {
 
     //creacción de los datos para el ReclycleView
     var tareas = mutableListOf<String>()
+
+    //instancia del apatador
+    lateinit var adaptador: TareaAdaptador
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +54,20 @@ class MainActivity : ComponentActivity() {
     private fun initUI(){
         initView()
         initListeners()
+        initRecyclerView()
+    }
+
+
+    /**
+     * Asocia el recyclerview con su ViewHolder y el adapter
+     */
+    private fun initRecyclerView() {
+        //asociamos a como se va  a ver las elementos
+        rvTareas.layoutManager = LinearLayoutManager(this)
+        //instancia del apater con las tareas
+        adaptador = TareaAdaptador(tareas)
+        //enlazamos
+        rvTareas.adapter = adaptador
     }
 
 
@@ -79,6 +97,8 @@ class MainActivity : ComponentActivity() {
     private fun añadirTarea() {
         val tareaAAñadir = textoEmail.text.toString()
         tareas.add(tareaAAñadir)
+        //con esto esta atento a camios para poderlo actualizar, es como observable
+        adaptador.notifyDataSetChanged()
 
     }
 
