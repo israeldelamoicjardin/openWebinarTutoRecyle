@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
  * a ese recycle view le paso el modelo de ViewHolder
  */
 
- public class TareaAdaptador(private val tareas: List<String>):RecyclerView.Adapter<TareasViewHolder>() {
+class TareaAdaptador(private val tareas: List<String>):RecyclerView.Adapter<TareasViewHolder>() {
 
 
  /**

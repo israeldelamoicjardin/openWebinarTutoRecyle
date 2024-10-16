@@ -4,7 +4,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Voy a devoer un viewholder al propio view que me llamo
+ * Voy a devolver un viewholder al propio view que me llamo
  *
  * */
 
