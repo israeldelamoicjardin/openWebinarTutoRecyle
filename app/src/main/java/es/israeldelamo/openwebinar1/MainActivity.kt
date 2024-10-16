@@ -16,7 +16,13 @@ import es.israeldelamo.openwebinar1.ui.theme.OpenWebinar1Theme
 import java.util.logging.Logger
 
 class MainActivity : ComponentActivity() {
+
+    val listaDeTareas:MutableList<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        listaDeTareas.add("Hola")
+
 
         // crear una instancia
         super.onCreate(savedInstanceState)
@@ -35,6 +41,18 @@ class MainActivity : ComponentActivity() {
 
     fun prueba(parametroEntrada:String = "CADENA por defecto"): String{
         val nuevaPalabra:String = "Esta palabra vine de la funcion"
+        // una cadena que puede ser nula
+        val unaCadenaALomejorNula:String? = null
+        //que sea seguro que no es nulo
+        if (unaCadenaALomejorNula!!.length > 0) {
+            kotlin.io.print("hola")
+        }
+        // que si es nulo no de fallo y devuelva 3
+        if ((unaCadenaALomejorNula?.length ?: 3) > 0) {
+            kotlin.io.print("hola")
+        }
+
+
         if(parametroEntrada=="cadena por defecto") {
             return "CADENA por defecto"
         }
@@ -43,6 +61,9 @@ class MainActivity : ComponentActivity() {
         }
 
     }
+
+
+
 
 
 }
