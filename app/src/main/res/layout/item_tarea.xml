@@ -37,7 +37,7 @@
             tools:text="Ejemplo de tarea vaica" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivTareaHecha"
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"

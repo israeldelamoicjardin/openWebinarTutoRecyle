@@ -1,5 +1,6 @@
 package es.israeldelamo.openwebinar1
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,13 +17,22 @@ class TareasViewHolder(view:View):RecyclerView.ViewHolder(view) {
      */
     private val tvTarea:TextView = view.findViewById(R.id.tvTarea)
 
+    /**
+     * Crea la referencia y la inizcializa contra el xml
+     */
+    private val ivTareaHecha:ImageView = view.findViewById(R.id.ivTareaHecha)
 
     /**
      * EL adapater al conectarse tiene el listado completo de tareas,
      * de ahí coge el string
+     * @param tarea la tarea a dibujar
+     * @onItemDone el elmento que va a dibujar
      */
-    fun render(tarea:String){
+    fun render(tarea:String, onItemDone:(Int) -> Unit){
         tvTarea.text = tarea
+        // añadimos un onclicklistener a la imagen, llamara a una funcion en el TareaAdapter
+        ivTareaHecha.setOnClickListener { onItemDone(adapterPosition)  }
+
     }
 
 }

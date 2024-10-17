@@ -55,11 +55,26 @@ class MainActivity : ComponentActivity() {
     private fun initRecyclerView() {
         //asociamos a como se va  a ver las elementos
         rvTareas.layoutManager = LinearLayoutManager(this)
-        //instancia del apater con las tareas
-        adaptador = TareaAdaptador(tareas)
+        //instancia del apater con las tareas y la posición que ha pulsado
+        adaptador = TareaAdaptador(tareas, {eliminarTarea(it)})
+        // o tambien así
+        // adaptador = TareaAdaptador(tareas, {position -> eliminarTarea(position )})
+
         //enlazamos
         rvTareas.adapter = adaptador
     }
+
+
+    /**
+     * Elimina el elemento de la posicion citgada
+     */
+
+    private fun eliminarTarea(position:Int){
+        tareas.removeAt(position)
+        // es tan tonto que hay que decirle que he cambiado cosas
+        adaptador.notifyDataSetChanged()
+    }
+
 
 
     /**
