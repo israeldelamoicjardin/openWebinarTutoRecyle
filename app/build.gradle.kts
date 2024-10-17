@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.compose.theme.adapter)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.cardview)
 
 
     testImplementation(libs.junit)
