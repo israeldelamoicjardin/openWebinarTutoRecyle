@@ -14,6 +14,7 @@ class Preferencias(context: Context) {
      */
     companion object{
         const val PREFS_NAME = "misBaseDeDatos"
+        const val TAREAS ="valor_tareas"
     }
 
 
@@ -27,10 +28,19 @@ class Preferencias(context: Context) {
     /**
      * Esta funcion trabaja solo con mi constante prefs creada arriba
      */
-    fun salvarInformacion(){
+    fun salvarInformacion(listaDeTareas:List<String>){
         // en prefs edita, pon un string, en el atributo "CAMPO1", pon la frasecilla y después aplica
-        prefs.edit().putString("CAMPO1","el dato de campo 1").apply()
+       // prefs.edit().putString("CAMPO1","el dato de campo 1").apply()
+        prefs.edit().putStringSet(TAREAS, listaDeTareas.toSet())
+    }
 
+
+    /**
+     * De la base de datos prefs, lee el atributo TAREAS que sera un Stringset, cambialo a mutable list
+     * si no existe devuelve un mutablelistvacio
+     */
+    fun recuperarTareas():List<String>{
+        return prefs.getStringSet(TAREAS,  emptySet<String>())?.toMutableList() ?: mutableListOf()
     }
 
 }
