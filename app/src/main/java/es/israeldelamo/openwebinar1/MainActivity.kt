@@ -55,6 +55,10 @@ class MainActivity : ComponentActivity() {
      * Asocia el recyclerview con su ViewHolder y el adapter
      */
     private fun initRecyclerView() {
+        //lee la base de datos
+        tareas = prefs.recuperarTareas()
+
+
         //asociamos a como se va  a ver las elementos
         rvTareas.layoutManager = LinearLayoutManager(this)
         //instancia del apater con las tareas y la posición que ha pulsado
@@ -75,6 +79,8 @@ class MainActivity : ComponentActivity() {
         tareas.removeAt(position)
         // es tan tonto que hay que decirle que he cambiado cosas
         adaptador.notifyDataSetChanged()
+        //acutalizo la lista
+        prefs.salvarInformacion(tareas)
     }
 
 
@@ -109,6 +115,9 @@ class MainActivity : ComponentActivity() {
         adaptador.notifyDataSetChanged()
         //limpio el texto
         textoEmail.setText("")
+
+        //salva en la base de datos
+        prefs.salvarInformacion(tareas)
     }
 
 

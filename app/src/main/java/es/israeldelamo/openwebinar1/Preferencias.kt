@@ -2,6 +2,7 @@ package es.israeldelamo.openwebinar1
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 
 
 /**
@@ -31,7 +32,12 @@ class Preferencias(context: Context) {
     fun salvarInformacion(listaDeTareas:List<String>){
         // en prefs edita, pon un string, en el atributo "CAMPO1", pon la frasecilla y después aplica
        // prefs.edit().putString("CAMPO1","el dato de campo 1").apply()
-        prefs.edit().putStringSet(TAREAS, listaDeTareas.toSet())
+        prefs.edit().putStringSet(TAREAS, listaDeTareas.toSet()).apply()
+
+
+
+
+
     }
 
 
@@ -39,7 +45,10 @@ class Preferencias(context: Context) {
      * De la base de datos prefs, lee el atributo TAREAS que sera un Stringset, cambialo a mutable list
      * si no existe devuelve un mutablelistvacio
      */
-    fun recuperarTareas():List<String>{
+    fun recuperarTareas():MutableList<String>{
+
+
+            Log.d("LEYENDO DATOS", "Nada")
         return prefs.getStringSet(TAREAS,  emptySet<String>())?.toMutableList() ?: mutableListOf()
     }
 
