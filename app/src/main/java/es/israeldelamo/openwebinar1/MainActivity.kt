@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import es.israeldelamo.openwebinar1.TaskApplication.Companion.prefs
 
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +36,7 @@ class MainActivity : ComponentActivity() {
         //asociarl el xml
         setContentView(R.layout.activity_main)
         initUI()
+       // prefs
     }
 
 
