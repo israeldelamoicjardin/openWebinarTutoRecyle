@@ -8,15 +8,38 @@
 
     <TextView
         android:id="@+id/tvTarea"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:textSize="24sp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
-
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ejemplo de tarea" />
+        tools:text="Ejemplo de tarea vaica" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:rotation="0"
+        android:rotationY="0"
+        android:scaleX="2"
+        android:scaleY="2"
+
+        android:src="@drawable/check_all"
+
+        android:tint="@color/purple_500"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
